@@ -1,0 +1,81 @@
+{
+  "version": 2,
+  "name": "puzzle-backend",
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/health",
+      "dest": "server.js"
+    },
+    {
+      "src": "/api/auth/(.*)",
+      "dest": "server.js"
+    },
+    {
+      "src": "/api/puzzles/(.*)",
+      "dest": "server.js"
+    },
+    {
+      "src": "/api/payments/(.*)",
+      "dest": "server.js"
+    },
+    {
+      "src": "/api/admin/(.*)",
+      "dest": "server.js"
+    },
+    {
+      "src": "/api/transactions/(.*)",
+      "dest": "server.js"
+    },
+    {
+      "src": "/api/webhooks/(.*)",
+      "dest": "server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
+    }
+  ],
+  "functions": {
+    "server.js": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/server.js"
+    }
+  ],
+  "regions": ["iad1"],
+  "github": {
+    "enabled": false
+  }
+}
