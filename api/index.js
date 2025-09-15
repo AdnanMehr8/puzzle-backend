@@ -8,8 +8,8 @@ const hpp = require('hpp');
 const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
-// Import routes (testing with none first)
-// const authRoutes = require('../routes/auth');
+// Import routes (adding back one by one)
+const authRoutes = require('../routes/auth');
 // const puzzleRoutes = require('../routes/puzzles');
 // const paymentRoutes = require('../routes/payments');
 // const adminRoutes = require('../routes/admin');
@@ -113,8 +113,8 @@ app.get('/', (req, res) => {
   res.json({ message: 'Puzzle Backend API is running' });
 });
 
-// API Routes (testing with none first)
-// app.use('/api/auth', authRoutes);
+// API Routes (adding back one by one)
+app.use('/api/auth', authRoutes);
 // app.use('/api/puzzles', puzzleRoutes);
 // app.use('/api/payments', paymentRoutes);
 // app.use('/api/admin', adminRoutes);
@@ -122,7 +122,7 @@ app.get('/', (req, res) => {
 
 // Test route to verify basic functionality
 app.get('/api/test', (req, res) => {
-  res.json({ message: 'Basic serverless function works!' });
+  res.json({ message: 'Auth route added - testing...' });
 });
 
 // Stripe webhook endpoint
