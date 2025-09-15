@@ -1,0 +1,310 @@
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-06 22:19:54"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-06 22:19:54"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-06 22:19:54"}
+{"cause":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{"localhost:27017":{"$clusterTime":null,"address":"localhost:27017","arbiters":[],"electionId":null,"error":{"beforeHandshake":false,"errorLabelSet":{}},"hosts":[],"iscryptd":false,"lastUpdateTime":126525930,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxBsonObjectSize":null,"maxMessageSizeBytes":null,"maxWireVersion":0,"maxWriteBatchSize":null,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"}},"setName":null,"stale":false,"type":"Unknown"},"errorLabelSet":{},"level":"error","message":"MongoDB connection error: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{"localhost:27017":{"$clusterTime":null,"address":"localhost:27017","arbiters":[],"electionId":null,"error":{"beforeHandshake":false,"errorLabelSet":{}},"hosts":[],"iscryptd":false,"lastUpdateTime":126525930,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxBsonObjectSize":null,"maxMessageSizeBytes":null,"maxWireVersion":0,"maxWriteBatchSize":null,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"}},"setName":null,"stale":false,"type":"Unknown"},"service":"puzzle-backend","stack":"MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017\n    at _handleConnectionErrors (C:\\Users\\Adnan\\Desktop\\Projects\\puzzle\\backend\\node_modules\\mongoose\\lib\\connection.js:1165:11)\n    at NativeConnection.openUri (C:\\Users\\Adnan\\Desktop\\Projects\\puzzle\\backend\\node_modules\\mongoose\\lib\\connection.js:1096:11)\n    at async connectDB (C:\\Users\\Adnan\\Desktop\\Projects\\puzzle\\backend\\server.js:77:18)","timestamp":"2025-09-06 22:19:59"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-06 22:23:08"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-06 22:23:08"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-06 22:23:08"}
+{"cause":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{"localhost:27017":{"$clusterTime":null,"address":"localhost:27017","arbiters":[],"electionId":null,"error":{"beforeHandshake":false,"errorLabelSet":{}},"hosts":[],"iscryptd":false,"lastUpdateTime":126719751,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxBsonObjectSize":null,"maxMessageSizeBytes":null,"maxWireVersion":0,"maxWriteBatchSize":null,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"}},"setName":null,"stale":false,"type":"Unknown"},"errorLabelSet":{},"level":"error","message":"MongoDB connection error: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{"localhost:27017":{"$clusterTime":null,"address":"localhost:27017","arbiters":[],"electionId":null,"error":{"beforeHandshake":false,"errorLabelSet":{}},"hosts":[],"iscryptd":false,"lastUpdateTime":126719751,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxBsonObjectSize":null,"maxMessageSizeBytes":null,"maxWireVersion":0,"maxWriteBatchSize":null,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"}},"setName":null,"stale":false,"type":"Unknown"},"service":"puzzle-backend","stack":"MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017\n    at _handleConnectionErrors (C:\\Users\\Adnan\\Desktop\\Projects\\puzzle\\backend\\node_modules\\mongoose\\lib\\connection.js:1165:11)\n    at NativeConnection.openUri (C:\\Users\\Adnan\\Desktop\\Projects\\puzzle\\backend\\node_modules\\mongoose\\lib\\connection.js:1096:11)\n    at async connectDB (C:\\Users\\Adnan\\Desktop\\Projects\\puzzle\\backend\\server.js:77:18)","timestamp":"2025-09-06 22:23:13"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-06 22:25:42"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-06 22:25:42"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-06 22:25:42"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-01.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-06 22:25:45"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-06 22:32:16"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-06 22:34:21"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"puzzle-backend","timestamp":"2025-09-06 22:39:45"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-06 22:39:57"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-06 22:39:57"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-06 22:39:57"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-06 22:40:01"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-06 22:43:30"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-06 22:43:30"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-06 22:43:30"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-06 22:43:32"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-06 22:43:42"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-06 22:43:54"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-06 22:44:52"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-06 22:48:15"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"puzzle-backend","timestamp":"2025-09-06 22:51:15"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-06 22:51:26"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-06 22:51:26"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-06 22:51:27"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-06 22:51:30"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-06 22:51:50"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-06 22:52:06"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"puzzle-backend","timestamp":"2025-09-06 22:52:18"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 01:05:30"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 01:05:30"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 01:05:30"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 01:05:32"}
+{"level":"info","message":"POST /api/auth/register - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:08:09"}
+{"level":"info","message":"POST /api/auth/register - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:08:17"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:08:44"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:09:27"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:09:45"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"puzzle-backend","timestamp":"2025-09-07 01:18:52"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 01:20:14"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 01:20:14"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 01:20:14"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-02.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 01:20:16"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:20:27"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:20:37"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:24:05"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:24:06"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:26:50"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:26:50"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:32:08"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:32:16"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:34:53"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 01:38:28"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 01:38:28"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 01:38:28"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-02.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 01:38:32"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:38:38"}
+{"level":"info","message":"PUT /api/auth/profile - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:39:03"}
+{"level":"info","message":"PUT /api/auth/profile - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:39:12"}
+{"level":"info","message":"POST /api/payment/add-method - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:40:18"}
+{"level":"info","message":"POST /api/payment/add-method - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:40:33"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:44:05"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:44:06"}
+{"level":"info","message":"POST /api/payments/solana/add-wallet - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:44:33"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 01:44:34"}
+{"level":"info","message":"POST /api/payments/stripe/create-payment-intent - ::1","service":"puzzle-backend","timestamp":"2025-09-07 02:03:29"}
+{"level":"info","message":"POST /api/payments/solana/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 02:03:49"}
+{"level":"info","message":"POST /api/payments/solana/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 02:04:13"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 02:04:48"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 02:04:48"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 04:01:20"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 04:01:20"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 04:01:20"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 04:01:23"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:02:24"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:02:25"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:02:49"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:03:30"}
+{"level":"info","message":"POST /api/payments/solana/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:04:26"}
+{"level":"info","message":"POST /api/payments/bitcoin/add-wallet - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:06:30"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:06:31"}
+{"level":"info","message":"POST /api/payments/bitcoin/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:06:49"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 04:10:49"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 04:10:49"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 04:10:49"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 04:10:52"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 04:14:11"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 04:14:11"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 04:14:11"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-01.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 04:14:12"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 04:16:51"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 04:16:51"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 04:16:51"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 04:16:54"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 04:27:17"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 04:27:17"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 04:27:17"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-02.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 04:27:20"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 04:28:39"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 04:28:39"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 04:28:39"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 04:28:42"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 04:28:54"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 04:28:54"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 04:28:54"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-01.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 04:28:56"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 04:29:31"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 04:29:31"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 04:29:31"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-02.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 04:29:34"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 04:32:00"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 04:32:00"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 04:32:00"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-02.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 04:32:02"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:33:04"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:33:05"}
+{"level":"info","message":"POST /api/payments/bitcoin/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:33:25"}
+{"level":"info","message":"POST /api/payments/solana/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:34:11"}
+{"level":"info","message":"POST /api/payments/bitcoin/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:34:39"}
+{"level":"info","message":"POST /api/payments/bitcoin/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:40:12"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 04:40:57"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 04:40:57"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 04:40:57"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 04:41:00"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:43:58"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:43:59"}
+{"level":"info","message":"POST /api/payments/bitcoin/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:44:14"}
+{"level":"info","message":"POST /api/payments/bitcoin/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 04:45:03"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"puzzle-backend","timestamp":"2025-09-07 04:45:23"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 06:41:12"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 06:41:12"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 06:41:12"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-02.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 06:41:13"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 06:43:36"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 06:43:36"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 06:43:36"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-01.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 06:43:37"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 06:46:03"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 06:46:03"}
+{"level":"info","message":"POST /api/payments/solana/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 06:46:28"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 06:50:52"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 06:50:52"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 06:50:52"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-01.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 06:50:54"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 06:51:09"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 06:51:09"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 06:51:09"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-02.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 06:51:11"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 06:51:28"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 06:51:28"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 06:51:28"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-01.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 06:51:30"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 06:52:32"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 06:52:32"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 06:52:32"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-01.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 06:52:34"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 06:53:02"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 06:53:02"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 06:53:02"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-01.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 06:53:03"}
+{"level":"info","message":"POST /api/payments/solana/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 06:53:09"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 06:54:19"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 06:54:19"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"puzzle-backend","timestamp":"2025-09-07 06:57:31"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 16:33:13"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 16:33:13"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 16:33:13"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-02.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 16:33:14"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 16:34:36"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 16:34:36"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 16:34:36"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-01.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 16:34:37"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 16:36:53"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 16:36:53"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 16:36:53"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 16:36:54"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 16:40:36"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 16:40:36"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 16:40:36"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-02.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 16:40:37"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"puzzle-backend","timestamp":"2025-09-07 16:41:26"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-07 16:44:57"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-07 16:44:57"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-07 16:44:57"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-07 16:44:58"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 16:50:57"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 16:50:58"}
+{"level":"info","message":"POST /api/payments/solana/add-wallet - ::1","service":"puzzle-backend","timestamp":"2025-09-07 16:51:25"}
+{"level":"info","message":"POST /api/payments/solana/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 16:51:26"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 16:54:20"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 16:54:21"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:01:04"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:01:04"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:04:39"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:04:39"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:10:47"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:10:47"}
+{"level":"info","message":"POST /api/payments/solana/add-wallet - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:11:05"}
+{"level":"info","message":"POST /api/payments/solana/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:11:05"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:29:55"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:29:56"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:30:03"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:30:03"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:41:34"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:41:34"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:46:40"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:46:40"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:54:17"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:54:17"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:58:09"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 17:58:09"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 18:23:35"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 18:23:35"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 18:24:20"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 18:24:20"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 18:25:13"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 18:25:13"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 18:36:56"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 18:36:56"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 18:39:05"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 18:39:06"}
+{"level":"info","message":"POST /api/payments/solana/add-wallet - ::1","service":"puzzle-backend","timestamp":"2025-09-07 19:20:50"}
+{"level":"info","message":"POST /api/payments/solana/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-07 19:20:51"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 19:42:10"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-07 19:42:11"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-14 19:01:04"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-14 19:01:04"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-14 19:01:04"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-02.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-14 19:01:05"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:12:45"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:22:05"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:22:06"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:22:19"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:22:20"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:38:05"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:38:05"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:39:18"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:39:19"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:41:18"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:41:18"}
+{"level":"info","message":"POST /api/payments/bitcoin/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:54:26"}
+{"level":"info","message":"POST /api/payments/bitcoin/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:54:55"}
+{"level":"info","message":"POST /api/payments/bitcoin/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:55:12"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:57:32"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:57:32"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:58:34"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 19:58:34"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-14 19:59:07"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-14 19:59:07"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-14 19:59:07"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-14 19:59:09"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-14 19:59:26"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-14 19:59:26"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-14 19:59:26"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-02.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-14 19:59:30"}
+{"level":"info","message":"POST /api/payments/bitcoin/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-14 20:00:31"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-14 20:01:23"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-14 20:01:23"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-14 20:01:23"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-14 20:01:24"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-14 20:04:24"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-14 20:04:24"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-14 20:04:24"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-14 20:04:25"}
+{"level":"info","message":"POST /api/payments/bitcoin/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-14 20:04:50"}
+{"level":"info","message":"POST /api/payments/bitcoin/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-14 20:05:10"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-14 20:06:13"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-14 20:06:13"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-14 20:06:13"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-02.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-14 20:06:14"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-14 20:06:21"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-14 20:06:21"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-14 20:06:21"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-14 20:06:22"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-14 20:07:03"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-14 20:07:03"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-14 20:07:03"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-02.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-14 20:07:04"}
+{"level":"info","message":"POST /api/payments/bitcoin/create-deposit - ::1","service":"puzzle-backend","timestamp":"2025-09-14 20:22:19"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"puzzle-backend","timestamp":"2025-09-14 20:22:32"}
+{"level":"info","message":"Server running on port 5000","service":"puzzle-backend","timestamp":"2025-09-14 21:39:15"}
+{"level":"info","message":"Environment: development","service":"puzzle-backend","timestamp":"2025-09-14 21:39:15"}
+{"level":"info","message":"Frontend URL: undefined","service":"puzzle-backend","timestamp":"2025-09-14 21:39:15"}
+{"level":"info","message":"MongoDB Connected: ac-cvusl8x-shard-00-00.xob4il6.mongodb.net","service":"puzzle-backend","timestamp":"2025-09-14 21:39:16"}
+{"level":"info","message":"POST /api/auth/login - ::1","service":"puzzle-backend","timestamp":"2025-09-14 21:39:21"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 21:53:03"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 21:53:03"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:24:22"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:24:22"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:26:33"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:26:33"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:26:41"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:26:41"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:26:44"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:26:44"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:40:09"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:40:09"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:48:13"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:48:13"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:50:05"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:50:05"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:56:59"}
+{"level":"info","message":"GET /api/auth/me - ::1","service":"puzzle-backend","timestamp":"2025-09-14 22:56:59"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"puzzle-backend","timestamp":"2025-09-14 22:58:46"}
