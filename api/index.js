@@ -4,26 +4,21 @@ const cors = require('cors');
 const helmet = require('helmet');
 const compression = require('compression');
 const mongoSanitize = require('express-mongo-sanitize');
-const xss = require('xss');
 const hpp = require('hpp');
 const rateLimit = require('express-rate-limit');
-const winston = require('winston');
 require('dotenv').config();
-
-// Import routes
-const authRoutes = require('../routes/auth');
-const puzzleRoutes = require('../routes/puzzles');
-const paymentRoutes = require('../routes/payments');
-const adminRoutes = require('../routes/admin');
-const transactionRoutes = require('../routes/transactions');
-
-// Import middleware
-const errorHandler = require('../middleware/errorHandler');
-const logger = require('../utils/logger');
 
 const app = express();
 
-// Security middleware
+// Create a serverless-compatible logger
+const logger = {
+  info: (message) => console.log(`INFO: ${message}`),
+  error: (message) => console.error(`ERROR: ${message}`),
+  warn: (message) => console.warn(`WARN: ${message}`),
+  debug: (message) => console.log(`DEBUG: ${message}`)
+};
+
+// Basic security middleware
 app.use(helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" }
 }));
@@ -33,7 +28,7 @@ app.use(hpp());
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: process.env.FRONTEND_URL || '*',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -43,26 +38,15 @@ app.use(cors({
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Rate limiting
+// Basic rate limiting
 const limiter = rateLimit({
-  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000, // 15 minutes
-  max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 100,
-  message: {
-    error: 'Too many requests from this IP, please try again later.'
-  },
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: { error: 'Too many requests from this IP, please try again later.' },
   standardHeaders: true,
   legacyHeaders: false,
 });
 app.use('/api/', limiter);
-
-// Stricter rate limiting for auth endpoints
-const authLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 5,
-  message: {
-    error: 'Too many authentication attempts, please try again later.'
-  }
-});
 
 // Request logging middleware
 app.use((req, res, next) => {
@@ -100,7 +84,6 @@ app.get('/api/health', (req, res) => {
   res.json({
     status: 'OK',
     timestamp: new Date().toISOString(),
-    uptime: process.uptime(),
     environment: process.env.NODE_ENV,
     version: '1.0.0'
   });
@@ -111,15 +94,21 @@ app.get('/', (req, res) => {
   res.json({ message: 'Puzzle Backend API is running' });
 });
 
-// API Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/puzzles', puzzleRoutes);
-app.use('/api/payments', paymentRoutes);
-app.use('/api/admin', adminRoutes);
-app.use('/api/transactions', transactionRoutes);
+// Test auth route (without middleware imports)
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Test route working' });
+});
 
-// Stripe webhook endpoint
-app.use('/api/webhooks', require('../routes/webhooks'));
+// Create a simple error handler
+const errorHandler = (err, req, res, next) => {
+  logger.error(err.message);
+  
+  res.status(err.statusCode || 500).json({
+    status: 'error',
+    message: err.message || 'Server Error',
+    ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+  });
+};
 
 // 404 handler
 app.use('*', (req, res) => {
@@ -143,6 +132,3 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: 'Internal server error' });
   }
 };
-
-// Also export the app for local development
-module.exports.app = app;
