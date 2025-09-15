@@ -11,9 +11,9 @@ require('dotenv').config();
 // Import routes (adding back one by one)
 const authRoutes = require('../routes/auth');
 const puzzleRoutes = require('../routes/puzzles');
-const paymentRoutes = require('../routes/payments');
-// const adminRoutes = require('../routes/admin');
-// const transactionRoutes = require('../routes/transactions');
+// const paymentRoutes = require('../routes/payments');
+const adminRoutes = require('../routes/admin');
+const transactionRoutes = require('../routes/transactions');
 
 const app = express();
 
@@ -116,9 +116,9 @@ app.get('/', (req, res) => {
 // API Routes (adding back one by one)
 app.use('/api/auth', authRoutes);
 app.use('/api/puzzles', puzzleRoutes);
-app.use('/api/payments', paymentRoutes);
-// app.use('/api/admin', adminRoutes);
-// app.use('/api/transactions', transactionRoutes);
+// app.use('/api/payments', paymentRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/transactions', transactionRoutes);
 
 // Test route to verify basic functionality
 app.get('/api/test', (req, res) => {
@@ -126,7 +126,7 @@ app.get('/api/test', (req, res) => {
 });
 
 // Stripe webhook endpoint
-// app.use('/api/webhooks', require('../routes/webhooks'));
+app.use('/api/webhooks', require('../routes/webhooks'));
 
 // Create a serverless-compatible error handler
 const errorHandler = (err, req, res, next) => {
