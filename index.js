@@ -72,22 +72,27 @@ app.use((req, res, next) => {
 });
 
 // MongoDB connection with retry logic
+let isConnected = false;
+
 const connectDB = async () => {
-  if (mongoose.connection.readyState === 0) {
-    try {
-      const conn = await mongoose.connect(process.env.MONGODB_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        maxPoolSize: 10,
-        serverSelectionTimeoutMS: 5000,
-        socketTimeoutMS: 45000,
-      });
-      
-      logger.info(`MongoDB Connected: ${conn.connection.host}`);
-    } catch (error) {
-      logger.error('MongoDB connection error:', error);
-      throw error;
-    }
+  if (isConnected) {
+    return;
+  }
+
+  try {
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      maxPoolSize: 10,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
+    });
+    
+    isConnected = true;
+    console.log('MongoDB Connected');
+  } catch (error) {
+    console.error('MongoDB connection error:', error);
+    throw error;
   }
 };
 
@@ -124,10 +129,15 @@ app.use('*', (req, res) => {
 // Global error handler
 app.use(errorHandler);
 
-// For Vercel serverless functions, we need to export a handler
+// For Vercel serverless functions
 module.exports = async (req, res) => {
-  await connectDB();
-  return app(req, res);
+  try {
+    await connectDB();
+    return app(req, res);
+  } catch (error) {
+    console.error('Handler error:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
 };
 
 // Also export the app for local development
