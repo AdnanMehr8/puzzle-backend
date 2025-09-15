@@ -73,24 +73,23 @@ app.use((req, res, next) => {
 
 // MongoDB connection with retry logic
 const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      maxPoolSize: 10,
-      serverSelectionTimeoutMS: 5000,
-      socketTimeoutMS: 45000,
-    });
-    
-    logger.info(`MongoDB Connected: ${conn.connection.host}`);
-  } catch (error) {
-    logger.error('MongoDB connection error:', error);
-    process.exit(1);
+  if (mongoose.connection.readyState === 0) {
+    try {
+      const conn = await mongoose.connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        maxPoolSize: 10,
+        serverSelectionTimeoutMS: 5000,
+        socketTimeoutMS: 45000,
+      });
+      
+      logger.info(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+      logger.error('MongoDB connection error:', error);
+      throw error;
+    }
   }
 };
-
-// Connect to database
-connectDB();
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
@@ -125,28 +124,11 @@ app.use('*', (req, res) => {
 // Global error handler
 app.use(errorHandler);
 
-// Graceful shutdown
-process.on('SIGTERM', () => {
-  logger.info('SIGTERM received, shutting down gracefully');
-  mongoose.connection.close(() => {
-    logger.info('MongoDB connection closed');
-    process.exit(0);
-  });
-});
+// For Vercel serverless functions, we need to export a handler
+module.exports = async (req, res) => {
+  await connectDB();
+  return app(req, res);
+};
 
-process.on('SIGINT', () => {
-  logger.info('SIGINT received, shutting down gracefully');
-  mongoose.connection.close(() => {
-    logger.info('MongoDB connection closed');
-    process.exit(0);
-  });
-});
-
-// Start server
-app.listen(PORT, () => {
-  logger.info(`Server running on port ${PORT}`);
-  logger.info(`Environment: ${process.env.NODE_ENV}`);
-  logger.info(`Frontend URL: ${process.env.FRONTEND_URL}`);
-});
-
-module.exports = app;
+// Also export the app for local development
+module.exports.app = app;
