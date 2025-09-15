@@ -76,6 +76,6 @@
   ],
   "regions": ["iad1"],
   "github": {
-    "enabled": false
+    "enabled": false,
   }
 }
