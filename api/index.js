@@ -8,6 +8,13 @@ const hpp = require('hpp');
 const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
+// Import routes
+const authRoutes = require('../routes/auth');
+const puzzleRoutes = require('../routes/puzzles');
+const paymentRoutes = require('../routes/payments');
+const adminRoutes = require('../routes/admin');
+const transactionRoutes = require('../routes/transactions');
+
 const app = express();
 
 // Create a serverless-compatible logger
@@ -18,7 +25,7 @@ const logger = {
   debug: (message) => console.log(`DEBUG: ${message}`)
 };
 
-// Basic security middleware
+// Security middleware
 app.use(helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" }
 }));
@@ -28,7 +35,7 @@ app.use(hpp());
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.FRONTEND_URL || '*',
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -38,15 +45,26 @@ app.use(cors({
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Basic rate limiting
+// Rate limiting
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-  message: { error: 'Too many requests from this IP, please try again later.' },
+  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000, // 15 minutes
+  max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 100,
+  message: {
+    error: 'Too many requests from this IP, please try again later.'
+  },
   standardHeaders: true,
   legacyHeaders: false,
 });
 app.use('/api/', limiter);
+
+// Stricter rate limiting for auth endpoints
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5,
+  message: {
+    error: 'Too many authentication attempts, please try again later.'
+  }
+});
 
 // Request logging middleware
 app.use((req, res, next) => {
@@ -84,6 +102,7 @@ app.get('/api/health', (req, res) => {
   res.json({
     status: 'OK',
     timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
     environment: process.env.NODE_ENV,
     version: '1.0.0'
   });
@@ -94,18 +113,56 @@ app.get('/', (req, res) => {
   res.json({ message: 'Puzzle Backend API is running' });
 });
 
-// Test auth route (without middleware imports)
-app.get('/api/test', (req, res) => {
-  res.json({ message: 'Test route working' });
-});
+// API Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/puzzles', puzzleRoutes);
+app.use('/api/payments', paymentRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/transactions', transactionRoutes);
 
-// Create a simple error handler
+// Stripe webhook endpoint
+app.use('/api/webhooks', require('../routes/webhooks'));
+
+// Create a serverless-compatible error handler
 const errorHandler = (err, req, res, next) => {
-  logger.error(err.message);
-  
-  res.status(err.statusCode || 500).json({
+  let error = { ...err };
+  error.message = err.message;
+
+  // Log error
+  logger.error(err);
+
+  // Mongoose bad ObjectId
+  if (err.name === 'CastError') {
+    const message = 'Resource not found';
+    error = { message, statusCode: 404 };
+  }
+
+  // Mongoose duplicate key
+  if (err.code === 11000) {
+    const message = 'Duplicate field value entered';
+    error = { message, statusCode: 400 };
+  }
+
+  // Mongoose validation error
+  if (err.name === 'ValidationError') {
+    const message = Object.values(err.errors).map(val => val.message).join(', ');
+    error = { message, statusCode: 400 };
+  }
+
+  // JWT errors
+  if (err.name === 'JsonWebTokenError') {
+    const message = 'Invalid token';
+    error = { message, statusCode: 401 };
+  }
+
+  if (err.name === 'TokenExpiredError') {
+    const message = 'Token expired';
+    error = { message, statusCode: 401 };
+  }
+
+  res.status(error.statusCode || 500).json({
     status: 'error',
-    message: err.message || 'Server Error',
+    message: error.message || 'Server Error',
     ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
   });
 };
@@ -132,3 +189,6 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: 'Internal server error' });
   }
 };
+
+// Also export the app for local development
+module.exports.app = app;
