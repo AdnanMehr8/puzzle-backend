@@ -11,7 +11,7 @@ require('dotenv').config();
 // Import routes (adding back one by one)
 const authRoutes = require('../routes/auth');
 const puzzleRoutes = require('../routes/puzzles');
-// const paymentRoutes = require('../routes/payments');
+const paymentRoutes = require('../routes/payments');
 // const adminRoutes = require('../routes/admin');
 // const transactionRoutes = require('../routes/transactions');
 
@@ -116,7 +116,7 @@ app.get('/', (req, res) => {
 // API Routes (adding back one by one)
 app.use('/api/auth', authRoutes);
 app.use('/api/puzzles', puzzleRoutes);
-// app.use('/api/payments', paymentRoutes);
+app.use('/api/payments', paymentRoutes);
 // app.use('/api/admin', adminRoutes);
 // app.use('/api/transactions', transactionRoutes);
 
