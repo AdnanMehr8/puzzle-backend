@@ -74,8 +74,5 @@
       "destination": "/server.js"
     }
   ],
-  "regions": ["iad1"],
-  "github": {
-    "enabled": false,
-  }
+
 }
