@@ -12,7 +12,6 @@ require('dotenv').config();
 
 // Import routes
 const authRoutes = require('./routes/auth');
-const puzzleRoutes = require('./routes/puzzles');
 const paymentRoutes = require('./routes/payments');
 const adminRoutes = require('./routes/admin');
 const transactionRoutes = require('./routes/transactions');
@@ -23,6 +22,9 @@ const logger = require('./utils/logger');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Mount webhooks BEFORE any body parsers so express.raw can read the body
+app.use('/api/webhooks', require('./routes/webhooks'));
 
 // Security middleware
 app.use(helmet({
@@ -106,7 +108,6 @@ app.get('/api/health', (req, res) => {
     version: '1.0.0'
   });
 });
-
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/puzzles', puzzleRoutes);
@@ -114,14 +115,9 @@ app.use('/api/payments', paymentRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/transactions', transactionRoutes);
 
-// Stripe webhook endpoint (before body parsing middleware)
-app.use('/api/webhooks', require('./routes/webhooks'));
-
-
 // 404 handler
 app.use('*', (req, res) => {
   res.status(404).json({
-    error: 'Route not found',
     path: req.originalUrl
   });
 });

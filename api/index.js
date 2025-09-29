@@ -9,21 +9,23 @@ const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 // Import routes (adding back one by one)
-const authRoutes = require('../routes/auth');
 const puzzleRoutes = require('../routes/puzzles');
 const paymentRoutes = require('../routes/payments');
 const adminRoutes = require('../routes/admin');
 const transactionRoutes = require('../routes/transactions');
 
-const app = express();
+  const app = express();
 
-// Create a serverless-compatible logger
-const logger = {
-  info: (message) => console.log(`INFO: ${message}`),
-  error: (message) => console.error(`ERROR: ${message}`),
-  warn: (message) => console.warn(`WARN: ${message}`),
-  debug: (message) => console.log(`DEBUG: ${message}`)
-};
+  // Create a serverless-compatible logger
+  const logger = {
+    info: (message) => console.log(`INFO: ${message}`),
+    error: (message) => console.error(`ERROR: ${message}`),
+    warn: (message) => console.warn(`WARN: ${message}`),
+    debug: (message) => console.log(`DEBUG: ${message}`)
+  };
+
+// Mount webhooks BEFORE any body parsers so Stripe signature verification sees raw body
+app.use('/api/webhooks', require('../routes/webhooks'));
 
 // Security middleware
 app.use(helmet({
@@ -34,105 +36,10 @@ app.use(mongoSanitize());
 app.use(hpp());
 
 // CORS configuration
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
-
-// Body parsing middleware
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-
-// Rate limiting
-const limiter = rateLimit({
-  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000, // 15 minutes
-  max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 100,
-  message: {
-    error: 'Too many requests from this IP, please try again later.'
-  },
-  standardHeaders: true,
-  legacyHeaders: false,
-});
-app.use('/api/', limiter);
-
-// Stricter rate limiting for auth endpoints
-const authLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 5,
-  message: {
-    error: 'Too many authentication attempts, please try again later.'
-  }
-});
-
-// Request logging middleware
-app.use((req, res, next) => {
-  logger.info(`${req.method} ${req.path} - ${req.ip}`);
-  next();
-});
-
-// MongoDB connection
-let isConnected = false;
-
-const connectDB = async () => {
-  if (isConnected) {
-    return;
-  }
-
-  try {
-    await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      maxPoolSize: 10,
-      serverSelectionTimeoutMS: 5000,
-      socketTimeoutMS: 45000,
-    });
-    
-    isConnected = true;
-    logger.info('MongoDB Connected');
-  } catch (error) {
-    logger.error('MongoDB connection error:', error);
-    throw error;
-  }
-};
-
-// Health check endpoint
-app.get('/api/health', (req, res) => {
-  res.json({
-    status: 'OK',
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime(),
-    environment: process.env.NODE_ENV,
-    version: '1.0.0'
-  });
-});
-
-// Basic route
-app.get('/', (req, res) => {
-  res.json({ message: 'Puzzle Backend API is running' });
-});
-
-// API Routes (adding back one by one)
-app.use('/api/auth', authRoutes);
-app.use('/api/puzzles', puzzleRoutes);
-app.use('/api/payments', paymentRoutes);
-app.use('/api/admin', adminRoutes);
-app.use('/api/transactions', transactionRoutes);
-
+{{ ... }}
 // Test route to verify basic functionality
 app.get('/api/test', (req, res) => {
   res.json({ message: 'Auth route added - testing...' });
-});
-
-// Stripe webhook endpoint
-app.use('/api/webhooks', require('../routes/webhooks'));
-
-// Create a serverless-compatible error handler
-const errorHandler = (err, req, res, next) => {
-  let error = { ...err };
-  error.message = err.message;
-
   // Log error
   logger.error(err);
 
