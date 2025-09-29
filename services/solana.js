@@ -662,7 +662,8 @@ class SolanaService {
       );
 
       if (existingWallet) {
-        throw new Error('Wallet already added to your account');
+        // Idempotent behavior: if wallet already exists, return its details
+        return existingWallet.details;
       }
 
       // Get wallet balance with timeout
@@ -725,8 +726,8 @@ class SolanaService {
       throw new Error('Invalid parameters');
     }
 
-    if (usdAmount < 5) {
-      throw new Error('Minimum deposit amount is $5');
+    if (usdAmount < 1) {
+      throw new Error('Minimum deposit amount is $1');
     }
 
     if (usdAmount > 10000) {

@@ -119,7 +119,8 @@ class BitcoinService {
       );
 
       if (existingWallet) {
-        throw new Error('Wallet already added');
+        // Idempotent: return the existing wallet details
+        return existingWallet.details;
       }
 
       // Get wallet balance to verify it exists

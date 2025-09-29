@@ -43,8 +43,8 @@ const paymentLimiter = rateLimit({
 // Validation middleware with stricter limits
 const depositValidation = [
   body('amount')
-    .isFloat({ min: 5, max: 5000 }) // Reduced max from 10000 to 5000
-    .withMessage('Amount must be between $5 and $5,000'),
+    .isFloat({ min: 1, max: 5000 }) // Allow $1 minimum, cap at $5,000
+    .withMessage('Amount must be between $1 and $5,000'),
   body('paymentMethod')
     .isIn(['stripe', 'solana', 'bitcoin'])
     .withMessage('Invalid payment method')
@@ -201,8 +201,8 @@ router.get('/transactions/:id', protect, [
 
 router.post('/stripe/create-payment-intent', protect, paymentLimiter, [
   body('amount')
-    .isFloat({ min: 5, max: 5000 })
-    .withMessage('Amount must be between $5 and $5,000')
+    .isFloat({ min: 1, max: 5000 })
+    .withMessage('Amount must be between $1 and $5,000')
 ], asyncHandler(async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -301,8 +301,8 @@ router.post('/solana/add-wallet', protect, [
 
 router.post('/solana/create-deposit', protect, paymentLimiter, [
   body('amount')
-    .isFloat({ min: 5, max: 5000 })
-    .withMessage('Amount must be between $5 and $5,000')
+    .isFloat({ min: 1, max: 5000 })
+    .withMessage('Amount must be between $1 and $5,000')
 ], asyncHandler(async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -384,7 +384,7 @@ router.post('/bitcoin/add-wallet', protect, [
   const { walletAddress } = req.body;
 
   const wallet = await withTimeout(
-    bitcoinService.addWallet(req.user._id, walletAddress),
+    (await loadBitcoinService()).addWallet(req.user._id, walletAddress),
     15000,
     'Bitcoin wallet verification timeout'
   );
@@ -398,8 +398,8 @@ router.post('/bitcoin/add-wallet', protect, [
 
 router.post('/bitcoin/create-deposit', protect, paymentLimiter, [
   body('amount')
-    .isFloat({ min: 5, max: 5000 })
-    .withMessage('Amount must be between $5 and $5,000')
+    .isFloat({ min: 1, max: 5000 })
+    .withMessage('Amount must be between $1 and $5,000')
 ], asyncHandler(async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -413,7 +413,7 @@ router.post('/bitcoin/create-deposit', protect, paymentLimiter, [
   const { amount } = req.body;
 
   const result = await withTimeout(
-    bitcoinService.createDepositTransaction(req.user._id, amount),
+    (await loadBitcoinService()).createDepositTransaction(req.user._id, amount),
     15000,
     'Bitcoin deposit creation timeout'
   );
@@ -441,7 +441,7 @@ router.post('/bitcoin/confirm-deposit', protect, [
   const { transactionId, txHash } = req.body;
 
   const result = await withTimeout(
-    bitcoinService.confirmDeposit(transactionId, txHash),
+    (await loadBitcoinService()).confirmDeposit(transactionId, txHash),
     25000,
     'Bitcoin confirmation timeout'
   );
