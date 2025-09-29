@@ -1,10 +1,22 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const Stripe = require('stripe');
 const User = require('../models/User');
 const Transaction = require('../models/Transaction');
 
 class StripeService {
   constructor() {
-    this.stripe = stripe;
+    this.stripe = null;
+  }
+
+  // Lazy initialize Stripe client when first needed
+  getClient() {
+    if (!this.stripe) {
+      const key = process.env.STRIPE_SECRET_KEY;
+      if (!key) {
+        throw new Error('Stripe is not configured. Missing STRIPE_SECRET_KEY');
+      }
+      this.stripe = Stripe(key);
+    }
+    return this.stripe;
   }
 
   // Create payment intent for wallet deposit
@@ -25,7 +37,7 @@ class StripeService {
         throw new Error('Maximum deposit amount is $10,000');
       }
 
-      const paymentIntent = await this.stripe.paymentIntents.create({
+      const paymentIntent = await this.getClient().paymentIntents.create({
         amount: Math.round(amount * 100), // Convert to cents
         currency: currency.toLowerCase(),
         customer: user.stripeCustomerId || undefined,
@@ -71,7 +83,7 @@ class StripeService {
   // Confirm payment and update user balance
   async confirmPayment(paymentIntentId) {
     try {
-      const paymentIntent = await this.stripe.paymentIntents.retrieve(paymentIntentId);
+      const paymentIntent = await this.getClient().paymentIntents.retrieve(paymentIntentId);
       
       if (paymentIntent.status !== 'succeeded') {
         throw new Error('Payment not successful');
@@ -121,7 +133,7 @@ class StripeService {
         return user.stripeCustomerId;
       }
 
-      const customer = await this.stripe.customers.create({
+      const customer = await this.getClient().customers.create({
         email: user.email,
         name: `${user.profile.firstName} ${user.profile.lastName}`,
         metadata: {
@@ -153,12 +165,12 @@ class StripeService {
       const customerId = user.stripeCustomerId || await this.createCustomer(userId);
 
       // Attach payment method to customer
-      await this.stripe.paymentMethods.attach(paymentMethodId, {
+      await this.getClient().paymentMethods.attach(paymentMethodId, {
         customer: customerId,
       });
 
       // Get payment method details
-      const paymentMethod = await this.stripe.paymentMethods.retrieve(paymentMethodId);
+      const paymentMethod = await this.getClient().paymentMethods.retrieve(paymentMethodId);
 
       // Add to user's payment methods
       const paymentMethodData = {
@@ -194,7 +206,7 @@ class StripeService {
       }
 
       // Detach from Stripe
-      await this.stripe.paymentMethods.detach(paymentMethodId);
+      await this.getClient().paymentMethods.detach(paymentMethodId);
 
       // Find and remove from user's payment methods
       const methodIndex = user.paymentMethods.findIndex(
@@ -242,7 +254,7 @@ class StripeService {
       // 2. Handle different payment method types (bank account vs card)
       // 3. Implement proper error handling for failed transfers
 
-      const transfer = await this.stripe.transfers.create({
+      const transfer = await this.getClient().transfers.create({
         amount: Math.round(amount * 100), // Convert to cents
         currency: 'usd',
         destination: paymentMethodId, // This would be a connected account ID in practice
@@ -344,7 +356,7 @@ class StripeService {
   // Verify webhook signature
   verifyWebhookSignature(payload, signature) {
     try {
-      return this.stripe.webhooks.constructEvent(
+      return this.getClient().webhooks.constructEvent(
         payload,
         signature,
         process.env.STRIPE_WEBHOOK_SECRET

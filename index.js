@@ -12,6 +12,7 @@ require('dotenv').config();
 
 // Import routes
 const authRoutes = require('./routes/auth');
+const puzzleRoutes = require('./routes/puzzles');
 const paymentRoutes = require('./routes/payments');
 const adminRoutes = require('./routes/admin');
 const transactionRoutes = require('./routes/transactions');

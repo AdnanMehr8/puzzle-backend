@@ -3,7 +3,6 @@ const express = require('express');
     const { body, param, validationResult } = require('express-validator');
     const rateLimit = require('express-rate-limit');
     const stripeService = require('../services/stripe');
-    const bitcoinService = require('../services/bitcoin');
     const Transaction = require('../models/Transaction');
 
     const router = express.Router();
@@ -17,6 +16,15 @@ const express = require('express');
         global.__solanaService = mod.default || mod;
       }
       return global.__solanaService;
+    }
+
+    // Lazy-load Bitcoin service to avoid loading native crypto deps at cold start
+    async function loadBitcoinService() {
+      if (!global.__bitcoinService) {
+        const mod = require('../services/bitcoin');
+        global.__bitcoinService = mod.default || mod;
+      }
+      return global.__bitcoinService;
     }
 
 // Serverless-friendly rate limiting with shorter windows
@@ -501,7 +509,7 @@ router.post('/withdraw', protect, sensitiveRateLimit(2), withdrawalValidation, a
       break;
     case 'bitcoin':
       result = await withTimeout(
-        bitcoinService.processWithdrawal(req.user._id, amount, destination),
+        (await loadBitcoinService()).processWithdrawal(req.user._id, amount, destination),
         timeoutMs,
         'Bitcoin withdrawal timeout'
       );
@@ -554,7 +562,7 @@ router.get('/balances', protect, asyncHandler(async (req, res) => {
     } else if (paymentMethod.type === 'bitcoin' && paymentMethod.details?.address) {
       balancePromises.push(
         withTimeout(
-          bitcoinService.getWalletBalance(paymentMethod.details.address),
+          (await loadBitcoinService()).getWalletBalance(paymentMethod.details.address),
           10000,
           'Bitcoin balance timeout'
         )
@@ -664,7 +672,7 @@ router.delete('/payment-methods/:id', protect, [
         break;
       case 'bitcoin':
         await withTimeout(
-          bitcoinService.removeWallet(req.user._id, paymentMethod.details.address),
+          (await loadBitcoinService()).removeWallet(req.user._id, paymentMethod.details.address),
           10000,
           'Bitcoin removal timeout'
         );
