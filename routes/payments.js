@@ -12,7 +12,8 @@ const express = require('express');
     // This defers requiring @solana/web3.js until Solana endpoints are actually hit
     async function loadSolanaService() {
       if (!global.__solanaService) {
-        const mod = await import('../services/solana');
+        // Use synchronous require to avoid ESM import resolver issues in CJS runtime
+        const mod = require('../services/solana');
         global.__solanaService = mod.default || mod;
       }
       return global.__solanaService;
